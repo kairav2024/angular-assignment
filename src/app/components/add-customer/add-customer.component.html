@@ -1,0 +1,64 @@
+<h4 class="create-customer--header">Create Customer</h4>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <mat-card>
+        <div class="container add-customer--wrapper">
+            <div class="form-field--wrapper">
+                <mat-form-field appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Enter the title" formControlName="title" />
+                    <mat-error class="p-0 error-text-font" *ngIf="
+              !formGroup.controls['title'].valid &&
+              formGroup.controls['title'].touched
+            ">
+                        Please enter valid title
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-filed--wrapper">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Enter the email" formControlName="email" />
+                    <mat-error class="p-0 error-text-font" *ngIf="
+              !formGroup.controls['email'].valid &&
+              formGroup.controls['email'].touched
+            ">
+                        Please enter valid email
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-field--wrapper ng-select--wrapper align-items-baseline">
+                <mat-label>Region Name<span class="text-danger">*</span></mat-label>
+                <ng-select (change)="fetchCountryList($event)" formControlName="region">
+                    <ng-option *ngFor="let data of toBeDisplayedRegionList" [value]="data.region">{{ data.region
+                        }}</ng-option>
+                </ng-select>
+                <mat-error class="p-0 error-text-font" *ngIf="
+            !formGroup.controls['region'].valid &&
+            formGroup.controls['region'].touched
+          ">
+                    Please enter the valid region name
+                </mat-error>
+            </div>
+            <div class="form-field--wrapper ng-select--wrapper align-items-baseline">
+                <mat-label>Country Name<span class="text-danger">*</span></mat-label>
+                <ng-select formControlName="country">
+                    <ng-option *ngFor="let data of toBeDisplayedCountryList" [value]="data.country">{{ data.country
+                        }}</ng-option>
+                </ng-select>
+                <mat-error class="p-0 error-text-font" *ngIf="
+            !formGroup.controls['country'].valid &&
+            formGroup.controls['country'].touched
+          ">
+                    Please enter the valid country name
+                </mat-error>
+            </div>
+        </div>
+    </mat-card>
+    <div class="create-customer-action--wrapper">
+        <button mat-raised-button mat-dialog-close class="m-2">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="formGroup.value" [disabled]="!formGroup.valid"
+            class="m-2">
+            Save
+        </button>
+    </div>
+</form>

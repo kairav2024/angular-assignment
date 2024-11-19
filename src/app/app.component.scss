@@ -1,0 +1,18 @@
+.pin-list--wrapper {
+    .pin-list-action--wrapper {
+        margin: 10px 0px;
+        display: flex;
+        justify-content: end;
+    }
+}
+
+::ng-deep {
+    .ng-dropdown-panel-items {
+        height: 120px !important;
+    }
+
+    .mat-mdc-dialog-container,
+    .mdc-dialog {
+        height: 550px !important;
+    }
+}

@@ -1,0 +1,60 @@
+<h4 class="add-pin--header">Add New Pin</h4>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+    <mat-card>
+        <div class="container add-customer--wrapper">
+            <div class="form-field--wrapper">
+                <mat-form-field appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Enter the title" formControlName="title" />
+                    <mat-error class="p-0 error-text-font" *ngIf="
+              !formGroup.controls['title'].valid &&
+              formGroup.controls['title'].touched
+            ">
+                        Please enter the title
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-field--wrapper image-upload--wrapper">
+                <div class="ng2-drop--wrapper text-center" ng2FileDrop [uploader]="uploader"
+                    (onFileDrop)="onFileSelected($event)" (click)="fileInput.click()">
+                    Drop the image
+                </div>
+                <span class="hidden-file--wrapper">
+                    <input type="file" ng2FileSelect #fileInput [uploader]="uploader" accept="image/*"
+                        (onFileSelected)="onFileSelected($event)" />
+                </span>
+                <span class="ml-2"><strong>{{ fileUrl }}</strong></span>
+                <mat-error class="p-0 error-text-font w-100 text-left" *ngIf="imageErrorMessage">
+                    Please upload valid image file.
+                </mat-error>
+            </div>
+            <div class="form-field--wrapper ng-select--wrapper align-items-baseline">
+                <mat-label>Select Collaboratory<span class="text-danger">*</span></mat-label>
+                <ng-select formControlName="collaboratory" [multiple]="true">
+                    <ng-option *ngFor="let data of fetchedCustomerList" [value]="data.title">{{ data?.title
+                        }}</ng-option>
+                </ng-select>
+                <mat-error class="p-0 error-text-font" *ngIf="
+            !formGroup.controls['collaboratory'].valid &&
+            formGroup.controls['collaboratory'].touched
+          ">
+                    Please select at least one collaborator
+                </mat-error>
+            </div>
+            <div class="form-field--wrapper text-left">
+                <mat-radio-group aria-label="Select an option" formControlName="privacy" class="mat-radio--wrapper"
+                    [required]="true">
+                    <mat-label>Priavcy <span class="text-danger">*</span></mat-label>
+                    <mat-radio-button value="private">Private</mat-radio-button>
+                    <mat-radio-button value="public">Public</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+    </mat-card>
+    <div class="create-pin-action--wrapper">
+        <button mat-raised-button mat-dialog-close class="m-2">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!formGroup.valid || !fileUrl" class="m-2">
+            Save
+        </button>
+    </div>
+</form>

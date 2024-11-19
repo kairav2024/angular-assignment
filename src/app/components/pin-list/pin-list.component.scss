@@ -1,0 +1,45 @@
+img {
+    height: 100px;
+    width: 100px;
+}
+
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #bebebe;
+    padding: 8px;
+}
+
+.custom-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+    font-weight: bold;
+}
+
+.custom-table tr:hover {
+    background-color: #ece9e9;
+}
+
+.mat-mdc-paginator {
+    border: 1px solid #bebebe;
+}
+
+
+:ng-deep {
+    .mat-mdc-form-field-error-wrapper {
+        padding: 0 !important;
+    }
+
+    .mat-elevation-z8 {
+        box-shadow: none !important;
+    }
+
+    .mat-mdc-dialog-container,
+    .mdc-dialog {
+        height: 550px !important;
+    }
+}

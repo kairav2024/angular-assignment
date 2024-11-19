@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="pin-list--wrapper">
+        <div class="pin-list-action--wrapper">
+          <button class="btn btn-secondary" (click)="openDialog('addCustomer')">
+            + Add Customer
+          </button>
+          <button class="btn btn-primary ml-2" (click)="openDialog('addPin')">
+            + Add Pin
+          </button>
+        </div>
+        <app-pin-list [pinListData]="pinsLists"></app-pin-list>
+      </div>
+    </div>
+  </div>
+</div>

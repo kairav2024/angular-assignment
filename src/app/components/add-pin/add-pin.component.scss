@@ -1,0 +1,112 @@
+.add-customer--wrapper {
+    text-align: center;
+
+    .image-upload--wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+    }
+
+    .form-field--wrapper {
+        margin: 10px 0px;
+        width: 350px;
+        justify-self: center;
+
+        .hidden-file--wrapper {
+            visibility: hidden;
+            position: absolute;
+            overflow: hidden;
+            width: 0px;
+            height: 0px;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    ::ng-deep {
+        .mat-radio--wrapper {
+            mat-label {
+                margin-right: 25px;
+            }
+
+            mat-radio-button {
+                label {
+                    margin-top: 7px;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    mat-form-field {
+        width: 350px;
+    }
+
+    .ng-select--wrapper {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        ng-select {
+            width: 350px;
+        }
+    }
+}
+
+.ng2-drop--wrapper {
+    border: 2px dashed rgb(202, 200, 200);
+    height: 50px;
+    width: 350px;
+    padding: 12px;
+}
+
+::ng-deep {
+    .mat-mdc-form-field-error-wrapper {
+        padding: 0 !important;
+    }
+
+    .mat-accent:focus,
+    .mat-accent:hover,
+    .mdc-radio:hover,
+    .mat-mdc-radio-button.mat-accent {
+        --mdc-radio-selected-focus-icon-color: #0053ad !important;
+        --mdc-radio-selected-icon-color: #0053ad !important;
+        --mdc-radio-selected-pressed-icon-color: #0053ad !important;
+        --mat-radio-checked-ripple-color: #0053ad !important;
+        --mdc-radio-selected-hover-icon-color: #0053ad !important;
+    }
+
+    .ng-dropdown-panel-items {
+        height: 120px !important;
+    }
+
+    .mat-mdc-card {
+        box-shadow: none !important;
+    }
+}
+
+
+.create-pin-action--wrapper {
+    float: right;
+}
+
+.add-pin--header {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.error-text-font {
+    font-size: 13px;
+}
+
+.create-pin-action--wrapper {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+}
